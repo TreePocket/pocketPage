@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>require是CommonJS的语法 | 树兜的一方小天地</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link>
+    <meta name="description" content="成熟大概就是和天真告别吧">
+    <link rel="preload" href="/pocketPage/assets/css/0.styles.59c7eed1.css" as="style"><link rel="preload" href="/pocketPage/assets/js/app.5df8dec8.js" as="script"><link rel="preload" href="/pocketPage/assets/js/2.1345dcab.js" as="script"><link rel="preload" href="/pocketPage/assets/js/12.65aef5a9.js" as="script"><link rel="prefetch" href="/pocketPage/assets/js/10.a558f6ac.js"><link rel="prefetch" href="/pocketPage/assets/js/11.bf055f63.js"><link rel="prefetch" href="/pocketPage/assets/js/13.73399ccb.js"><link rel="prefetch" href="/pocketPage/assets/js/14.974febcf.js"><link rel="prefetch" href="/pocketPage/assets/js/15.b9b130cd.js"><link rel="prefetch" href="/pocketPage/assets/js/16.f766ef1c.js"><link rel="prefetch" href="/pocketPage/assets/js/17.6e6f2f6f.js"><link rel="prefetch" href="/pocketPage/assets/js/18.f6a78d62.js"><link rel="prefetch" href="/pocketPage/assets/js/19.ea99490f.js"><link rel="prefetch" href="/pocketPage/assets/js/20.31130b37.js"><link rel="prefetch" href="/pocketPage/assets/js/21.70e6003f.js"><link rel="prefetch" href="/pocketPage/assets/js/3.637f7fb4.js"><link rel="prefetch" href="/pocketPage/assets/js/4.81e05cc2.js"><link rel="prefetch" href="/pocketPage/assets/js/5.9d4ceeef.js"><link rel="prefetch" href="/pocketPage/assets/js/6.61455457.js"><link rel="prefetch" href="/pocketPage/assets/js/7.21502a18.js"><link rel="prefetch" href="/pocketPage/assets/js/8.fd793512.js"><link rel="prefetch" href="/pocketPage/assets/js/9.b436e068.js">
+    <link rel="stylesheet" href="/pocketPage/assets/css/0.styles.59c7eed1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/pocketPage/" class="home-link router-link-active"><!----> <span class="site-name">树兜的一方小天地</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/pocketPage/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/pocketPage/frontend/JavaScript/Js中Require和import.html" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/pocketPage/articles/" class="nav-link">
+  随笔
+</a></div><div class="nav-item"><a href="/pocketPage/books/" class="nav-link">
+  书籍
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/pocketPage/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/pocketPage/frontend/JavaScript/Js中Require和import.html" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/pocketPage/articles/" class="nav-link">
+  随笔
+</a></div><div class="nav-item"><a href="/pocketPage/books/" class="nav-link">
+  书籍
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JavaScript</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pocketPage/frontend/JavaScript/Js中Require和import.html" class="active sidebar-link">Js中require和import区别</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pocketPage/frontend/JavaScript/ES6+.html" class="sidebar-link">ES6+</a></li></ul></section></li><li><a href="/pocketPage/frontend/Css/" class="sidebar-link">现代化Css</a></li><li><a href="/pocketPage/frontend/Engineering/" class="sidebar-link">前端工程化</a></li><li><a href="/pocketPage/frontend/Linux/" class="sidebar-link">Linux</a></li><li><a href="/pocketPage/frontend/Node/" class="sidebar-link">Node</a></li><li><a href="/pocketPage/frontend/Performance/" class="sidebar-link">前端性能优化</a></li><li><a href="/pocketPage/frontend/React/" class="sidebar-link">React专题</a></li><li><a href="/pocketPage/frontend/Vue/" class="sidebar-link">探索Vue的秘密</a></li><li><a href="/pocketPage/frontend/Webpack/" class="sidebar-link">Webpack的那些事</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="require是commonjs的语法"><a href="#require是commonjs的语法" class="header-anchor">#</a> require是CommonJS的语法</h3> <ul><li><p>什么是CommonJS？</p> <p>CommonJS是一种JS语言模块化的规范，通常会在服务器端的NodeJS上使用。</p> <p>在CommonJs的模块化规范中，每一个文件就是一个模块，拥有自己独立的作用域、变量、以及方法等，对其他的模块都不可见。</p> <p>CommonJS规范规定，每个模块内部，module变量代表当前模块。这个变量是一个对象，它的exports属性是对外的接口。</p> <p>模块化规范带来的好处是在业务复杂，模块众多的大型项目中，开发者都遵循相同的规则来开发各自的模块，通过规范来约束模块的定义，就不需要太多的沟通或者大量的文档来说明自己模块的使用规则。</p></li></ul> <h3 id="import是es6的一个语法标准"><a href="#import是es6的一个语法标准" class="header-anchor">#</a> import是ES6的一个语法标准</h3> <p>在调用时间的区别：
+​	require是运行时调用，所以require理论上可以运行在代码的任何地方</p> <p>​	import是编译时调用，所以必须放在文件开头</p> <p>本质区别:</p> <p>​	require是赋值过程，require的结果就是对象、数字、字符串、函数等赋值给某个变量。</p> <p>​	import是解构过程。</p> <p>​	require只能在运行时确定模块的依赖关系及输入/输出的变量，无法进行静态优化。</p> <p>​	import遵循ES6规范，支持编译时静态分析，便于JS引入宏和类型验证，动态绑定。</p> <ul><li>通过require引入基础数据类型时，属于复制该变量</li> <li>通过require引入复杂数据类型时，数据浅拷贝该对象</li> <li>出现模块之间的循环引用时，会输出已经执行的模块，而未执行的模块不输出</li> <li>CommonJS模块默认export的是一个对象，即使导出的是基础数据类型</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/pocketPage/frontend/JavaScript/ES6+.html">
+        ES6+
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/pocketPage/assets/js/app.5df8dec8.js" defer></script><script src="/pocketPage/assets/js/2.1345dcab.js" defer></script><script src="/pocketPage/assets/js/12.65aef5a9.js" defer></script>
+  </body>
+</html>
